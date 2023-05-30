@@ -89,3 +89,7 @@ nnoremap <leader>h :echo tsuquyomi#hint()<CR>
 " for vim-prettier
 let g:prettier#autoformat = 1
 " end for vim-prettier
+
+" for vim-minimap
+let g:minimap_highlight = 'MatchParen'
+" end for vim-minimap
