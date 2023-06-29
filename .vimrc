@@ -93,3 +93,21 @@ let g:prettier#autoformat = 1
 " for vim-minimap
 let g:minimap_highlight = 'MatchParen'
 " end for vim-minimap
+
+function! AddPrettierPragma()
+  call append(0, '/** @prettier */')
+endfunction
+
+autocmd BufNewFile *.js,*.ts,*.jsx,*.tsx exec ":call AddPrettierPragma()"
+nnoremap <leader>p :call AddPrettierPragma()<cr>
+
+function! AddFnComment()
+  let content = []
+  call add(content, "/**")
+  call add(content, " * @description: ")
+  call add(content, " * @param {*}")
+  call add(content, " * @return {*}")
+  call add(content, " */")
+  call append(line('.'), content)
+endfunction
+nnoremap <leader>fc :call AddFnComment()<cr>
